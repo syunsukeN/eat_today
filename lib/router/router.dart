@@ -1,4 +1,5 @@
-import 'package:eat_today/home_page.dart';
+import 'package:eat_today/features/home/view/home_page.dart';
+import 'package:eat_today/features/result/view/result_page.dart';
 import 'package:eat_today/no_location_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -28,6 +29,17 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           return MaterialPage(
             key: state.pageKey,
             child: const NoLocationPage(),
+          );
+        },
+      ),
+
+      GoRoute(
+        path: '/restaurant',
+        name: 'restaurant',
+        pageBuilder: (context, state) {
+          return MaterialPage(
+            key: state.pageKey,
+            child: const ResultPage(),
           );
         },
       ),

@@ -1,7 +1,7 @@
 // location_service.dart
+import 'package:eat_today/services/location_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:eat_today/models/location_service.dart';
 
 // LocationServiceのインスタンスを提供するProvider
 final locationServiceProvider = Provider<LocationService>((ref) {
@@ -13,3 +13,6 @@ final currentUserLocationProvider = FutureProvider<Position?>((ref) async {
   final locationService = ref.watch(locationServiceProvider);
   return locationService.getCurrentLocation();
 });
+
+// 半径の値を管理
+final sliderValueProvider = StateProvider<int>((ref) => 1);
